@@ -1130,4 +1130,24 @@ config DRM_PANEL_XINPENG_XPP055C272
 	  Say Y here if you want to enable support for the Xinpeng
 	  XPP055C272 controller for 720x1280 LCD panels with MIPI/RGB/SPI
 	  system interfaces.
+	  
+config DRM_PANEL_OPPO16051SAMSUNG_S6E3FA3
+	tristate "Samsung S6E3FA3 panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y or M here if you want to enable support for the
+	  Samsung S6E3FA3 FHD Plus (1920x1080@60Hz) CMD mode panel.	  
+	  
+config DRM_PANEL_OPPO17021SAMSUNG_SOFEG01_S
+	tristate "Samsung SOFEG01_S panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y or M here if you want to enable support for the
+	  Samsung SOFEG01_S FHD Plus (2160x1080@60Hz) CMD mode panel.
+	  
 endmenu
+

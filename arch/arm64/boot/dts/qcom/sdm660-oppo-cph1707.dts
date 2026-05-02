@@ -1,0 +1,52 @@
+// SPDX-License-Identifier: GPL-2.0-only
+/*
+* Copyright (c) 2025, XiKoTaSu <3329989998@qq.com>
+*/
+
+/dts-v1/;
+
+#include "sdm660.dtsi"
+#include "pm660.dtsi"
+#include "pm660l.dtsi"
+#include <dt-bindings/input/input.h>
+#include <dt-bindings/input/gpio-keys.h>
+#include <dt-bindings/pinctrl/qcom,pmic-gpio.h>
+
+/ {
+	model = "OPPO R11";
+	compatible = "oppo,cph1707", "qcom,sdm660";
+	chassis-type = "handset";
+
+	aliases {
+		serial0 = &blsp1_uart2;
+        serial1 = &blsp2_uart1; /* Bluetooth UART */
+	};
+
+	chosen {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+
+		/* stdout-path = "serial0:115200n8"; */
+
+		framebuffer0: framebuffer@9d400000 {
+			compatible = "simple-framebuffer";
+			reg = <0 0x9d400000 0 0x23000000>;
+			width = <1080>;
+			height = <1920>;
+			stride = <(1080 * 4)>;
+			format = "a8r8g8b8";
+		};
+	};
+};
+
+&panel {
+	compatible = "mdss,oppo16051samsung-s6e3fa3";
+};
+
+&synaptics_touchscreen {
+	rmi4-f1a@1a {
+		reg = <0x1a>;
+		linux,keycodes = <KEY_BACK KEY_HOME KEY_MENU>;
+	};
+};
