@@ -36,7 +36,11 @@
 };
 
 &panel {
-	compatible = "mdss,oppo16051samsung-s6e3fa3";
+	compatible = "samsung,s6e3fa3";
+	vdda-supply = <&vreg_s4a_2p04>;
+
+	enable-gpios = <&tlmm 53 0>;
+	disp-te-gpios = <&tlmm 59 0>;
 };
 
 &synaptics_touchscreen {

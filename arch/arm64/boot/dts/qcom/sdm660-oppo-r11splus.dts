@@ -36,6 +36,7 @@
 };
 
 &panel {
+    status = "disabled";
 	compatible = "mdss,oppo17021samsung-sofeg01-s";
 };
 

@@ -1149,5 +1149,12 @@ config DRM_PANEL_OPPO17021SAMSUNG_SOFEG01_S
 	  Say Y or M here if you want to enable support for the
 	  Samsung SOFEG01_S FHD Plus (2160x1080@60Hz) CMD mode panel.
 	  
+config DRM_PANEL_SAMSUNG_S6E3FA3
+	tristate "Samsung S6E3FA3 DSI command mode panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	select VIDEOMODE_HELPERS	  
+	  
 endmenu
 
