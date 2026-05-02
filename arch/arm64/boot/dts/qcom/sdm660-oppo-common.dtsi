@@ -41,9 +41,30 @@
 	
 	touchpanel_vdd: touchpanel-regulator {
 		compatible = "regulator-fixed";
-		regulator-name = "touchpanel_vdd";
-		regulator-min-microvolt = <2800000>;
+		regulator-name = "touchpanel-regulator";
+
+		regulator-min-microvolt = <27900000>;
 		regulator-max-microvolt = <2800000>;
+		startup-delay-us = <0>;
+		enable-active-high;
+		regulator-boot-on;
+		gpio = <&tlmm 15 GPIO_ACTIVE_HIGH>;
+	};
+	
+	oledb_fixed: oledb-regulator {
+		compatible = "regulator-fixed";
+		regulator-name = "regulator-oledb";
+		regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <8000000>;
+		regulator-always-on;
+		regulator-boot-on;
+	};
+	
+	lab_ibb_fixed: labibb-regulator {
+	    compatible = "regulator-fixed";
+	    regulator-name = "regulator-labibb";
+	   	regulator-min-microvolt = <5000000>;
+		regulator-max-microvolt = <6000000>;
 		regulator-always-on;
 		regulator-boot-on;
 	};
@@ -154,7 +175,11 @@
 	
 	panel: panel@0 {
 		reg = <0>;
-
+		
+		vddio-supply = <&vreg_l6a_1p3>;
+		vddneg-supply = <&lab_ibb_fixed>;
+		vddpos-supply = <&lab_ibb_fixed>;
+		oledb-supply = <&oledb_fixed>;
 		reset-gpios = <&tlmm 53 GPIO_ACTIVE_LOW>;
 		
 		pinctrl-names = "default";
