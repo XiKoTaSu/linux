@@ -35,16 +35,15 @@
 		regulator-name = "vph_pwr";
 		regulator-min-microvolt = <3700000>;
 		regulator-max-microvolt = <3700000>;
-
 		regulator-always-on;
 		regulator-boot-on;
 	};
 	
 	touchpanel_vdd: touchpanel-regulator {
 		compatible = "regulator-fixed";
-		regulator-name = "oledb";
-		regulator-min-microvolt = <5000000>;
-		regulator-max-microvolt = <6000000>;
+		regulator-name = "touchpanel_vdd";
+		regulator-min-microvolt = <2800000>;
+		regulator-max-microvolt = <2800000>;
 		regulator-always-on;
 		regulator-boot-on;
 	};
