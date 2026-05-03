@@ -58,3 +58,14 @@
 		syna,clip-y-high = <1920>;
 	};
 };
+
+&blsp_i2c6 {
+    status = "okay";
+    audio-codec@36 {
+        compatible = "nxp,tfa9890";
+        reg = <0x36>;
+        sound-name-prefix = "Speaker Right";
+        vddd-supply = <&vreg_l13a_1p8>;
+        #sound-dai-cells = <0>;
+    };
+};
